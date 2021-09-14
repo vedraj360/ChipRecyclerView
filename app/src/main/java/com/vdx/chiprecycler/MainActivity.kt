@@ -13,7 +13,6 @@ import com.vdx.chiprv.customui.data.ChipData
 import com.vdx.chiprv.customui.data.ChipTextData
 import com.vdx.chiprv.items.ChipItem
 import com.vdx.chiprv.utils.RVOrientation
-import kotlin.math.nextTowards
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setUpChipWithImageRv()
         setUpChipWithTextRv()
+        setUpChipWithImageRvVertical()
+        setUpChipWithTextRvVertical()
     }
 
     private fun setUpChipWithImageRv() {
@@ -48,6 +49,31 @@ class MainActivity : AppCompatActivity() {
         moveToPosition((2 until 10).random(), recyclerView)
     }
 
+    private fun setUpChipWithImageRvVertical() {
+        val recyclerView: ChipRV<ChipItem> = findViewById(R.id.RecyclerView3)
+        recyclerView.init(this)
+            .listener(object : ChipClickListener<ChipItem> {
+                override fun onClick(item: ChipItem, position: Int, clickEventCode: Int) {
+                    if (item is ChipData) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            item.name,
+                            Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                }
+            })
+            .setSelection(true)
+            .layout().linear().orientation(RVOrientation.VERTICAL)
+            .addView().item(ChipData::class.java).holder(CircularChipViewHolder::class.java)
+            .layout(R.layout.chip_li)
+            .build()
+
+        recyclerView.addAll(chipLists())
+        moveToPosition((2 until 10).random(), recyclerView)
+    }
+
+
     private fun setUpChipWithTextRv() {
         val recyclerView: ChipRV<ChipItem> = findViewById(R.id.RecyclerView2)
         recyclerView.init(this)
@@ -65,6 +91,31 @@ class MainActivity : AppCompatActivity() {
             })
             .setSelection(true)
             .layout().linear().orientation(RVOrientation.HORIZONTAL)
+            .addView().item(ChipTextData::class.java).holder(CircularTextChipViewHolder::class.java)
+            .layout(R.layout.chip_li)
+            .build()
+
+        recyclerView.addAll(chipTextLists())
+
+    }
+
+    private fun setUpChipWithTextRvVertical() {
+        val recyclerView: ChipRV<ChipItem> = findViewById(R.id.RecyclerView4)
+        recyclerView.init(this)
+            .listener(object : ChipClickListener<ChipItem> {
+                override fun onClick(item: ChipItem, position: Int, clickEventCode: Int) {
+                    if (item is ChipTextData) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            item.name,
+                            Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                }
+
+            })
+            .setSelection(true)
+            .layout().linear().orientation(RVOrientation.VERTICAL)
             .addView().item(ChipTextData::class.java).holder(CircularTextChipViewHolder::class.java)
             .layout(R.layout.chip_li)
             .build()
