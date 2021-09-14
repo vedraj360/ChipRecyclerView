@@ -152,7 +152,7 @@ class ChipAdapter<T : ChipItem>() : RecyclerView.Adapter<ChipViewHolder<T>>() {
     }
 
     fun onClick(position: Int, clickEventCode: Int) {
-        recyclerClickListener?.let { listener ->
+        recyclerClickListener?.let { _ ->
             val isSelected = items[position].selected
             if (isSelected) {
                 items[position].selected = false
