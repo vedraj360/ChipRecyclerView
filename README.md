@@ -42,7 +42,7 @@ Add **ChipRV** to your layout.
         android:layout_width="match_parent"
         android:layout_height="100dp" />
 ```
-* There are multiple viewholderS already present in library out of the box ✌.
+* There are multiple viewholders already present in library out of the box ✌.
 
   1 CircularChipViewHolder
 
