@@ -12,7 +12,7 @@ A simple library to **Create Circular chips like Instagram stories or a custom r
 
 |  CircularChipViewHolder &  CircularTextChipViewHolder
 |--|
-| <img src="/gifs/demo.gif" width="250" height="250"/> |
+| <img src="/gifs/demo.gif" width="400" height="400"/> |
 
 # How it works:
 
