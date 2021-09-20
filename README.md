@@ -30,7 +30,7 @@ A simple library to **Create Circular chips like Instagram stories or a custom r
 - Add the dependency
 ```
 dependencies {
-	        implementation 'com.github.vedraj360:ChipRecyclerView:1.0.3'
+	        implementation 'com.github.vedraj360:ChipRecyclerView:Release-1.0.5'
 	}
 ```
 
