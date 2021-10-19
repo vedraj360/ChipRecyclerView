@@ -125,6 +125,57 @@ class CircularChipViewHolder(
 
 ```
 
+```Java 
+
+public class QualityViewHolder extends ChipViewHolder<QualityModel> {
+    private ImageView image;
+    private ImageView videoIcon;
+    private TextView date;
+
+    private final View itemView;
+
+
+    public QualityViewHolder(@NonNull View itemView, @NonNull ChipViewHolderClickEventListener clickEventListener) {
+        super(itemView, clickEventListener);
+        this.itemView = itemView;
+    }
+
+    @Override
+    public void init() {
+        image = (ImageView) init(R.id.quality_image);
+        videoIcon = (ImageView) init(R.id.video_icon);
+        date = (TextView) init(R.id.quality_date);
+    }
+
+    @Override
+    public void assign() {
+        assignClickEvent(image);
+        assignLongClickEvent(image, 101);
+    }
+
+    @Override
+    public void bind(@NonNull QualityModel qualityModel, int position) {
+        if (qualityModel.getCreationDate() != null) {
+            date.setVisibility(View.VISIBLE);
+            date.setText(Helper.formatDateByPattern(qualityModel.getCreationDate(),"yyyy-MM-dd","dd-MMM"));
+        }
+        if (qualityModel.getType() != null) {
+            if (qualityModel.getType().equals("IMAGE")) {
+                Glide.with(itemView.getContext()).load(qualityModel.getMediaUrl()).into(image);
+                videoIcon.setVisibility(View.GONE);
+            } else {
+                videoIcon.setVisibility(View.VISIBLE);
+                if (qualityModel.getThumbnail() != null) {
+                    Glide.with(itemView.getContext()).load(qualityModel.getThumbnail()).into(image);
+                } else {
+                    Glide.with(itemView.getContext()).load(R.drawable.ic_add_white).into(image);
+                }
+            }
+        }
+    }
+}
+
+```
 
 ### Constructuring
 ##### init(Context context)
