@@ -19,7 +19,7 @@ class CircularChipViewHolder(
     private lateinit var circleImageView: CircleImageView
     private lateinit var dot: ImageView
 
-    override fun bind(item: ChipData, position: Int) {
+    override fun bind(item: ChipData, position: Int, items: Int) {
         nameTv.text = item.name
         Glide.with(itemView.context).load(item.url)
             .into(circleImageView)

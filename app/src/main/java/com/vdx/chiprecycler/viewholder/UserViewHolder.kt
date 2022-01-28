@@ -14,7 +14,7 @@ class UserViewHolder(
 ) : ChipViewHolder<User>(itemView, clickEventListener) {
     private lateinit var userNameTv: TextView
 
-    override fun bind(item: User, position: Int) {
+    override fun bind(item: User, position: Int, items: Int) {
         val text = "${item.userName}  ${item.selected}"
         userNameTv.text = text;
         if (item.selected) {

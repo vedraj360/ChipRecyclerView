@@ -22,7 +22,7 @@ class CircularTextChipViewHolder(
     lateinit var circleImageView: CircleImageView
     lateinit var dot: ImageView
 
-    override fun bind(item: ChipTextData, position: Int) {
+    override fun bind(item: ChipTextData, position: Int, items: Int) {
         nameTv.text = item.name
 
         val drawable = TextDrawable.builder()

@@ -13,7 +13,7 @@ class DataViewHolder(
 ) : ChipViewHolder<Data>(itemView, clickEventListener) {
     private lateinit var userNameTv: TextView
 
-    override fun bind(item: Data, position: Int) {
+    override fun bind(item: Data, position: Int, items: Int) {
         userNameTv.text = item.userName;
     }
 

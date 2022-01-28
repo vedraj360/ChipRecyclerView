@@ -134,7 +134,7 @@ class ChipAdapter<T : ChipItem>() : RecyclerView.Adapter<ChipViewHolder<T>>() {
     }
 
     override fun onBindViewHolder(GRViewHolder: ChipViewHolder<T>, i: Int) {
-        GRViewHolder.bind(items[i], i)
+        GRViewHolder.bind(items[i], i, itemCount)
     }
 
     override fun getItemCount(): Int {

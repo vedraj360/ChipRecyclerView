@@ -15,7 +15,7 @@ abstract class ChipViewHolder<T : ChipItem>(
         assign()
     }
 
-    abstract fun bind(item: T, position: Int)
+    abstract fun bind(item: T, position: Int, size: Int)
 
     abstract fun init()
 
